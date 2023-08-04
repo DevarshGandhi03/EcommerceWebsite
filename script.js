@@ -1,25 +1,29 @@
-let itemCards = document.querySelectorAll(".itemCard");
-let homeBtn = document.querySelector(".logo");
-let orignalMain = document.querySelector("main").innerHTML;
-console.log(orignalMain);
-let main = document.querySelector("main");
+function reload() {
+  let itemCards = document.querySelectorAll(".itemCard");
+  let homeBtn = document.querySelector(".logo");
+  let orignalMain = document.querySelector("main").innerHTML;
+  
+  console.log();
+  let main = document.querySelector("main");
+  let imageUrl;
+  let shoeName;
+  let currentPrice;
+  let originalPrice;
 
-console.log(itemCards);
-const functReact = () => {
+
   itemCards.forEach((e) => {
-    e.addEventListener("click", (elem) => {
-      console.log(e);
-      let imageUrl = e.querySelector("img").src;
-      let shoeName = e.querySelector(".itemName").innerHTML;
-      let currentPrice = e.querySelector(".itemPrice").innerHTML;
-      let originalPrice = e.querySelector(".del").innerHTML;
-      console.log(originalPrice);
+    console.log(e);
+    e.addEventListener("click", () => {
+      imageUrl = e.querySelector("img").src;
+      shoeName = e.querySelector(".itemName").innerHTML;
+      currentPrice = e.querySelector(".itemPrice").innerHTML;
+      console.log(currentPrice);
 
       main.innerHTML = `<div class="heading">
         <h1 class="heading-2">${shoeName}</h1>
       </div>
       <div class="itemPage">
-        <div class="itemImage">
+        <div class="itemPageImage">
             <img
             class="_2r_T1I _396QI4"
             alt=""
@@ -27,27 +31,25 @@ const functReact = () => {
           />
         </div>
         <div class="itemInfo">
-            <h3>Adidas</h3>
-            <p class="shoeName">${shoeName}</p>
-            <p class="price">
-            ${currentPrice} &nbsp;<del
-                style="font-size: smaller; color: rgb(133, 133, 133)"
-                >${originalPrice}</del
-              >
+          <h3>Adidas</h3>
+          <p class="itemName">${shoeName}</p>
+            <p class="itemPrice">
+              ${currentPrice} 
             </p>
             <div class="buttons">
-                <button class="addToCart btn">Add to cart</button>
-                <button class="moveToWishlist btn">Wishlist</button>
-              </div>
+                <button class="addToCart btn pageBtn">Add to cart</button>
+                <button class="moveToWishlist btn pageBtn ">Wishlist</button>
+            </div>
         </div>
         
       </div>`;
     });
   });
-};
-homeBtn.addEventListener("click", () => {
-  main.innerHTML=` `;
-  main.insertAdjacentHTML("afterend", orignalMain)
-  functReact();
-});
-functReact();
+
+  homeBtn.addEventListener("click", () => {
+    main.innerHTML = orignalMain;
+    reload()
+  });
+}
+
+reload()

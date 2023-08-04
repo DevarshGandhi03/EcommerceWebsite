@@ -126,3 +126,30 @@
     font-size: 2.5rem;
     margin: 30px 10px;
 }
+.itemPage{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px;
+}
+.itemPageImage img{
+    width: 65%;
+}
+.itemInfo h3{
+    color: rgb(103, 103, 103);
+    font-size: 2.5rem ;
+}
+.itemInfo{
+    line-height: 1.2;
+    margin :10px;
+}
+.itemInfo p{
+    color: rgb(41, 41, 41);
+    font-size: 2rem ;
+}
+.pageBtn{
+    width: 17vw;
+    padding: 15px;
+    font-size: large;
+}
