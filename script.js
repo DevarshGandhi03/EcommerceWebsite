@@ -75,6 +75,7 @@ function CartFunc() {
       console.log(e.parentElement.parentElement.outerHTML);
       e.addEventListener("click",()=>{
         e.parentElement.parentElement.outerHTML=``;
+        cartHtml=main.innerHTML;
         document.querySelector(".Cart sup").innerHTML= --cartNo;
 
       })
@@ -83,6 +84,7 @@ function CartFunc() {
   addCartBtn.forEach((e) => {
     e.addEventListener("click", () => {
       document.querySelector(".Cart sup").innerHTML= ++cartNo;
+      let checkNoOne=0;
       let itemName =
         e.parentElement.parentElement.parentElement.querySelector(
           ".itemCartName"
@@ -93,6 +95,8 @@ function CartFunc() {
         ).innerHTML;
       let itemImg =
         e.parentElement.parentElement.parentElement.querySelector("img").src;
+    
+      let allMainImg=main.querySelectorAll("img").src;
 
       cartHtml += ` 
         <div class="cartItemPage">
