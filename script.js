@@ -65,10 +65,20 @@ function CartFunc() {
   let wishlistBtn = document.querySelectorAll(".funcBtnWish");
   let cartBtn = document.querySelector(".Cart");
   let addCartBtn = document.querySelectorAll(".funcBtnCart");
+  let removeBtn;
   let cartNo= document.querySelector(".Cart sup").innerHTML;
   
   cartBtn.addEventListener("click", () => {
     main.innerHTML = cartHtml;
+    removeBtn= document.querySelectorAll(".removeBtn")
+    removeBtn.forEach((e)=>{
+      console.log(e.parentElement.parentElement.outerHTML);
+      e.addEventListener("click",()=>{
+        e.parentElement.parentElement.outerHTML=``;
+        document.querySelector(".Cart sup").innerHTML= --cartNo;
+
+      })
+    })
   });
   addCartBtn.forEach((e) => {
     e.addEventListener("click", () => {
@@ -85,7 +95,6 @@ function CartFunc() {
         e.parentElement.parentElement.parentElement.querySelector("img").src;
 
       cartHtml += ` 
-      <div class="cartSection">
         <div class="cartItemPage">
           <div class="cartItemPageImage">
             <img
@@ -100,9 +109,9 @@ function CartFunc() {
             <p class="itemCartPrice">
             ${itemPrice}
             </p>
+            <button class="removeBtn">Remove</button>
           </div>
-        </div>
-      </div>`;
+        </div>`;
     });
   });
 }
